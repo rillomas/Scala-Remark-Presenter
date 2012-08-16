@@ -1,0 +1,33 @@
+@(title: String, userID: String)(content: Html)(implicit request: RequestHeader)
+
+<!doctype html>
+    <head>
+        <title>@title</title>
+        <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
+        <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/client.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+        <script src="http://dart.googlecode.com/svn/branches/bleeding_edge/dart/client/dart.js"></script> 
+    </head>
+    <body>
+    <script type="application/dart">
+    #import("@routes.Assets.at("scripts/App.dart")");
+    #import("@routes.Assets.at("scripts/SVGRemarkDisplayer.dart")");
+
+    void main() {
+        // initialize displayers
+        final int MAX_NUMBER_OF_REMARKS = 15;
+        var displayer = new SVGRemarkDisplayer();
+        displayer.initialize("#stage", MAX_NUMBER_OF_REMARKS);
+
+        PanelLayoutParameter param = new PanelLayoutParameter("#inputPanel", "#displayArea", "#remarkPanel", "#hideInputPanel", "#hideRemarkPanel");
+
+        var url = "@routes.Application.connect(userID).webSocketURL()";
+        print(url);
+
+        App app = new App();
+        app.initialize(url, displayer, param);
+    }
+    </script>
+        @content
+    </body>
+</html>

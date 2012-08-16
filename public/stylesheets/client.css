@@ -1,0 +1,37 @@
+html, body {
+    background-color: #eee;
+}
+.container > footer p {
+    text-align: center; /* center align it with the container */
+}
+
+.remark {
+    background : rgba(0,0,0,0); /* transparent background*/
+    position: absolute;
+    width: auto;
+    height: auto;
+    font-family: "IPA モナーPゴシック", monospace;
+}
+
+/* Fading animation */
+/*
+@-webkit-keyframes fade {
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+*/
+
+/* vertical scroll animation */
+/*
+@-webkit-keyframes vslide {
+  0%   { -webkit-transform: translateY(0px); }
+  100% { -webkit-transform: translateY(100px); }
+}
+*/
+
+/* horizontal scroll animation
+@-webkit-keyframes hslide {
+  0%   { -webkit-transform: translateX(0px); }
+  100% { -webkit-transform: translateX(1000px); }
+}
+ */

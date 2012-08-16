@@ -1,0 +1,53 @@
+@(title: String, userID: String, initial: String)(implicit request: RequestHeader)
+
+@import helper._
+
+@main(title, userID) {
+
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="#">Remark Presenter</a>
+                <button class="btn-primary" id="hideInputPanel">Hide Input Panel</button>
+                <button class="btn-primary" id="hideRemarkPanel">Hide Remark Panel</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container-fluid">
+        <div class="row-fluid" >
+            <div class="span6" id="inputPanel" >
+                <div>
+                    <ul>
+                        <li>
+                            <label>Remark</label>
+                            <textarea class="input-xxlarge" rows="23" wrap="off" id="remarkText">@initial</textarea>
+                        </li>
+                        <li>
+                            <label>Display speed</label>
+                            <input type="range"  min="0" max="99" value="50" step="1" id="displaySpeed">
+                        </li>
+                        <li>
+                            <label>Path string</label>
+                            <textarea class="input-xxlarge" rows="5" id="pathString">M10,150 A15 15 180 0 1 70 140 A15 25 180 0 0 130 130 A15 55 180 0 1 190 120 A15 10 170 0 1 10 150</textarea>
+                        </li>
+                        <li>
+                            <label>Rotate</label>
+                            <input type="checkbox" id="rotateRemark">
+                        </li>
+                  </ul>
+                    <button class="btn-primary" id="postRemark" type="button">Post</button>
+                </div>
+            </div>
+            
+            <div class="span4 offset6" id="displayArea">
+                <div id="stage">
+                </div>
+            </div>
+            
+            <div class="span2 offset10" id="remarkPanel">
+                
+            </div>
+        </div>
+    </div>
+}
